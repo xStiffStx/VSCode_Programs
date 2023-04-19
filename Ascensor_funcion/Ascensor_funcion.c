@@ -46,7 +46,6 @@ void llamar_ascensor(int* piso_actual) {
     int piso_llamada;
     printf("Ingrese el piso desde donde llama al ascensor (0-9): ");
     scanf("%d", &piso_llamada);
-    
     if (piso_llamada < 10) {
         if (piso_llamada == *piso_actual) {
             printf("El ascensor ya se encuentra en el piso %d\n", *piso_actual);
@@ -70,7 +69,6 @@ void seleccionar_piso(int* piso_actual) {
     int piso_seleccionado;
     printf("Ingrese el piso al que desea ir (0-9): ");
     scanf("%d", &piso_seleccionado);
-
     if (piso_seleccionado < 10) {
         if (piso_seleccionado == *piso_actual) {
             printf("El ascensor ya se encuentra en el piso %d\n", *piso_actual);
