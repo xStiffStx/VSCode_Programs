@@ -8,6 +8,4 @@ int multiplicar(int c,int d);
 
 float dividir(float q,float e);
 
-void imprimir(int sum, int res, int multipl, float divi);
-
 
