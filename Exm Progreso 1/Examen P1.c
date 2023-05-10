@@ -44,7 +44,7 @@ int Login(){
         printf("Usuario o Contrasena incorrectos. Intento #%d \n", intentos);
     }
     printf("Ingreso Denegado. Se alcanzo el numero maximo de intentos.\n");
-    return 0;
+    return 1;
 }
 
 
