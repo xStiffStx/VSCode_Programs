@@ -1,18 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "menu.h"
 
 // Estructura para representar una cita
 typedef struct {
     int dia;
-    int mes;
+    int mes;    
     int anio;
     int hora;
     int minutos;
 } Cita;
-
-Cita citasAgendadas[100]; // Arreglo de las citas agendadas
-int numCitasAgendadas = 0; // Contador del número de citas agendadas
-
 
 void agendarCita() {
    printf("Has seleccionado Agendar Cita.\n");
@@ -27,9 +24,6 @@ void agendarCita() {
     printf("Ingrese la hora de la cita (HH:MM): ");
     scanf("%d:%d", &nuevaCita.hora, &nuevaCita.minutos);
 
-    citasAgendadas[numCitasAgendadas] = nuevaCita;
-    numCitasAgendadas++;
-
     // Aquí se puede procesar y almacenar la cita en una estructura de datos o en una base de datos
 
     printf("Cita agendada para el %d/%d/%d a las %02d:%02d.\n", nuevaCita.dia, nuevaCita.mes, nuevaCita.anio, nuevaCita.hora, nuevaCita.minutos);
@@ -38,7 +32,7 @@ void agendarCita() {
 
 void cancelarCita() {
    printf("Has seleccionado Cancelar Cita.\n");
-   
+
     // Por simplicidad, se solicitará al usuario que ingrese la fecha y hora de la cita a cancelar
 
     Cita citaCancelar;
@@ -54,29 +48,11 @@ void cancelarCita() {
     printf("Cita del %d/%d/%d a las %02d:%02d cancelada exitosamente.\n", citaCancelar.dia, citaCancelar.mes, citaCancelar.anio, citaCancelar.hora, citaCancelar.minutos);
 }
 
-void mostrarCitasAgendadas() {
-    printf("Citas agendadas:\n");
-    
-    if (numCitasAgendadas == 0) {
-        printf("No hay citas agendadas.\n");
-        return;
-    }
-    
-    for (int i = 0; i < numCitasAgendadas; i++) {
-        Cita cita = citasAgendadas[i];
-        printf("Cita %d:\n", i + 1);
-        printf("Fecha: %d/%d/%d\n", cita.dia, cita.mes, cita.anio);
-        printf("Hora: %02d:%02d\n", cita.hora, cita.minutos);
-        printf("---------------------\n");
-    }
-}
-
 void mostrarMenu() {
     printf("Bienvenido al sistema de agendamiento de citas.\n");
     printf("1. Agendar cita\n");
     printf("2. Cancelar cita\n");
-    printf("3. Mostrar citas agendadas\n");
-    printf("4. Salir\n");
+    printf("3. Salir\n");
     printf("Selecciona una opcion: ");
 }
 
@@ -95,16 +71,13 @@ int main() {
                 cancelarCita();
                 break;
             case 3:
-                mostrarCitasAgendadas();
-                break;
-            case 4:
                 printf("Gracias por usar el sistema de agendamiento. ¡Hasta luego!\n");
                 break;
             default:
-                printf("Opción inválida. Por favor, selecciona una opcion valida.\n");
+                printf("Opcion invalida. Por favor, selecciona una opcion valida.\n");
                 break;
         }
-    } while (opcion != 4);
+    } while (opcion != 3);
 
     return 0;
 }

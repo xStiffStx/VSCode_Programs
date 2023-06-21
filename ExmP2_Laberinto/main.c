@@ -8,7 +8,7 @@ void showMenu() {
     printf("1. Juego Nuevo\n");
     printf("2. Creditos\n");
     printf("3. Salir\n");
-    printf("=====================\n");
+    
     printf("Ingrese una opción: ");
 }
 
