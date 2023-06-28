@@ -14,9 +14,7 @@ typedef struct {
 void agendarCita() {
    printf("Has seleccionado Agendar Cita.\n");
 
-    // Por simplicidad, se solicitará al usuario que ingrese la fecha y hora de la cita
-
-    Cita nuevaCita;
+    Cita nuevaCita; 
 
     printf("Ingrese la fecha de la cita (DD/MM/AAAA): ");
     scanf("%d/%d/%d", &nuevaCita.dia, &nuevaCita.mes, &nuevaCita.anio);
