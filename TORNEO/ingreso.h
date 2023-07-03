@@ -1,6 +1,6 @@
 #ifndef INGRESO_H
 #define INGRESO_H
 
-void ingresarEquipos();
+int ingresoEquipos(char equipos[][100]);
 
 #endif
