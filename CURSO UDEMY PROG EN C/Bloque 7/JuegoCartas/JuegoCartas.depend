@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1654855288 source:c:\users\miguel\documents\udemy\aprende c con ejercicios prácticos\prácticas c\juegocartas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utiles.h"
+	"blackjack.h"
+
+1654687338 c:\users\miguel\documents\udemy\aprende c con ejercicios prácticos\prácticas c\juegocartas\utiles.h
+
+1654687816 source:c:\users\miguel\documents\udemy\aprende c con ejercicios prácticos\prácticas c\juegocartas\utiles.c
+	<stdio.h>
+	<stdlib.h>
+
+1654855160 source:c:\users\miguel\documents\udemy\aprende c con ejercicios prácticos\prácticas c\juegocartas\blackjack.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+	"blackjack.h"
+
+1655738150 c:\users\miguel\documents\udemy\aprende c con ejercicios prácticos\prácticas c\juegocartas\blackjack.h
+

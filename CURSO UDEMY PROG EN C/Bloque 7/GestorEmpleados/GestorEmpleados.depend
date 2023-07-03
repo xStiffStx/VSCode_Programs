@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1655058961 source:c:\users\miguel\desktop\practica\gestorempleados\persistencia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"operaciones.h"
+
+1655058169 source:c:\users\miguel\desktop\practica\gestorempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	"operaciones.h"
+	"persistencia.h"
+
+1655057831 c:\users\miguel\desktop\practica\gestorempleados\operaciones.h
+
+1655058667 c:\users\miguel\desktop\practica\gestorempleados\persistencia.h
+
+1655058130 source:c:\users\miguel\desktop\practica\gestorempleados\operaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"operaciones.h"
+
