@@ -49,9 +49,9 @@ void guardarEmpleados(struct doctor doctores[100], int num_doctores){
     f = fopen("Doctores.txt","w");
 
     for (int i=0; i < num_doctores -1; i++){
-        fprintf(f, "%s;%d;%d;%s\n", doctores[i].nombre, doctores[i].id, doctores[i].cedula, doctores[i].horas);
+        fprintf(f, "%s;%d;%d;%d;%s\n", doctores[i].nombre, doctores[i].id, doctores[i].cedula, doctores[i].celular, doctores[i].horas);
     }
-    fprintf(f, "%s;%d;%d;%s", doctores[num_doctores-1].nombre, doctores[num_doctores-1].id, doctores[num_doctores-1].cedula, doctores[num_doctores-1].horas);
+    fprintf(f, "%s;%d;%d;%d;%s", doctores[num_doctores-1].nombre, doctores[num_doctores-1].id, doctores[num_doctores-1].cedula, doctores[num_doctores-1].celular, doctores[num_doctores-1].horas);
 
     fclose(f);
 }
