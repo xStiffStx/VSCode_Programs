@@ -1,7 +1,7 @@
 #ifndef OPERACIONES_H_INCLUDED
 #define OPERACIONES_H_INCLUDED
 
-struct empleado{
+struct doctor{
     char nombre[255];
     int id;
     int cedula;
@@ -9,11 +9,11 @@ struct empleado{
 };
 
 void mostrarMenu();
-void listarEmpleados(struct empleado empleados[100], int num_emp);
-int alta(struct empleado empleados[100], int num_emp);
-int baja(struct empleado empleados[100], int num_emp);
-void consultarDatosEmpleado(struct empleado empleados[100], int num_emp);
-void modificarCedula(struct empleado empleados[100], int num_emp);
-void modificarHorario(struct empleado empleados[100], int num_emp);
+void listar_Doctores(struct doctor doctores[100], int num_doctores);
+int alta(struct doctor doctores[100], int num_doctores);
+int baja(struct doctor doctores[100], int num_doctores);
+void consultar_Datos_Doctor(struct doctor doctores[100], int num_doctores);
+void modificar_Cedula(struct doctor doctores[100], int num_doctores);
+void modificar_Horario(struct doctor doctores[100], int num_doctores);
 
-#endif // OPERACIONES_H_INCLUDED
+#endif

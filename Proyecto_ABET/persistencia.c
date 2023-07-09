@@ -4,54 +4,54 @@
 #include "operaciones.h"
 
 
-int cargarEmpleados(struct empleado empleados[100]){
-    int n_emp = 0;  
+int cargar_Doctores(struct doctor doctores[100]){
+    int n_doc = 0;  
     FILE *f;
-    f = fopen("empleados.txt","r");
+    f = fopen("Doctores.txt","r");
     char cadena[255];
-    char delimitador[] = ";";
+    char delimitador[] = " ;";
 
     while (feof(f) == 0){
 
-        struct empleado e;
+        struct doctor d;
         fgets(cadena,255,f);
-        char *token = strtok(cadena,delimitador);
+        char *token = strtok(cadena, delimitador);
 
         if(token != NULL){
             int campo = 1;
             while (token != NULL){
                 if (campo == 1){
-                    strcpy(e.nombre,token);
+                    strcpy(d.nombre,token);
                 }
                 else if(campo == 2){
-                    e.id = atoi(token);
+                    d.id = atoi(token);
                 }
                 else if(campo == 3){
-                    e.cedula = atof(token);
+                    d.cedula = atof(token);
                 }
                 else if(campo == 4){
-                    strcpy(e.horas,token);
+                    strcpy(d.horas,token);
                 }
                 campo++;
                 token = strtok(NULL, delimitador);
             }
         }
-        empleados[n_emp] = e;
-        n_emp++;
+        doctores[n_doc] = d;
+        n_doc++;
 
     }
     fclose(f);
-    return n_emp;
+    return n_doc;
 }
 
-void guardarEmpleados(struct empleado empleados[100], int num_emp){
+void guardarEmpleados(struct doctor doctores[100], int num_doctores){
     FILE *f;
-    f = fopen("empleados.txt","w");
+    f = fopen("Doctores.txt","w");
 
-    for (int i=0; i<num_emp-1; i++){
-        fprintf(f, "%s;%d;%d;%s\n",empleados[i].nombre,empleados[i].id,empleados[i].cedula,empleados[i].horas);
+    for (int i=0; i < num_doctores -1; i++){
+        fprintf(f, "%s;%d;%d;%s\n", doctores[i].nombre, doctores[i].id, doctores[i].cedula, doctores[i].horas);
     }
-    fprintf(f, "%s;%d;%d;%s",empleados[num_emp-1].nombre,empleados[num_emp-1].id,empleados[num_emp-1].cedula,empleados[num_emp-1].horas);
+    fprintf(f, "%s;%d;%d;%s", doctores[num_doctores-1].nombre, doctores[num_doctores-1].id, doctores[num_doctores-1].cedula, doctores[num_doctores-1].horas);
 
     fclose(f);
 }

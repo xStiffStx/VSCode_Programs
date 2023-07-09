@@ -6,40 +6,40 @@
 int main()
 {
     int opcion;
-    int num_emp = 0;
-    struct empleado empleados[100];
+    int num_doctores = 0;
+    struct doctor doctores[100];
 
-    num_emp = cargarEmpleados(empleados);
+    num_doctores = cargar_Doctores(doctores);
     
-    printf("BIENVENIDOS AL GESTOR DE EMPLEADOS\n");
+    printf("BIENVENIDOS AL GESTOR DE DOCTORES\n");
     mostrarMenu();
     scanf("%d",&opcion);
 
     while(opcion != 7){
         
         if(opcion == 1){
-            int creado = alta(empleados,num_emp);
+            int creado = alta(doctores, num_doctores);
             if (creado == 1){
-                num_emp++;
+                num_doctores++;
             }
         }
         else if(opcion == 2){
-            int eliminado = baja(empleados,num_emp);
+            int eliminado = baja(doctores, num_doctores);
             if (eliminado == 1){
-                num_emp--;
+                num_doctores--;
             }
         }
         else if(opcion == 3){
-            listarEmpleados(empleados,num_emp);
+            listar_Doctores(doctores, num_doctores);
         }
         else if(opcion == 4){
-            consultarDatosEmpleado(empleados,num_emp);
+            consultar_Datos_Doctor(doctores, num_doctores);
         }
         else if(opcion == 5){
-            modificarCedula(empleados,num_emp);
+            modificar_Cedula(doctores, num_doctores);
         }
         else if(opcion == 6){
-            modificarHorario(empleados,num_emp);
+            modificar_Horario(doctores, num_doctores);
         }
         else if(opcion > 7 || opcion < 1){
             printf("Por favor solo opciones entre 1-7");
@@ -48,6 +48,6 @@ int main()
         scanf("%d",&opcion);
     }
 
-    guardarEmpleados(empleados,num_emp);
-    printf("GRACIAS POR USAR EL GESTOR DE EMPLEADOS. HASTA PRONTO!\n\n");
+    guardarEmpleados(doctores, num_doctores);
+    printf("GRACIAS POR USAR EL GESTOR DE DOCTORES. HASTA PRONTO!\n\n");
 }

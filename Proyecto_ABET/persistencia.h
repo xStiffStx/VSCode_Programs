@@ -2,7 +2,7 @@
 #define PERSISTENCIA_H_INCLUDED
 #include "operaciones.h"
 
-int cargarEmpleados(struct empleado empleados[100]);
-void guardarEmpleados(struct empleado empleados[100], int num_emp);
+int cargar_Doctores(struct doctor doctores[100]);
+void guardarEmpleados(struct doctor doctores[100], int num_doctores);
 
-#endif // PERSISTENCIA_H_INCLUDED
+#endif

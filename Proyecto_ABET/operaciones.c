@@ -3,7 +3,7 @@
 #include <string.h>
 #include "operaciones.h"
 
-int comprobarId(struct empleado empleados[100], int num_emp, int id);
+int comprobarID(struct doctor doctores[100], int num_doctores, int id);
 
 void mostrarMenu(){
     printf("\nIntroduce la opcion que desee realizar:\n");
@@ -16,74 +16,74 @@ void mostrarMenu(){
     printf("7- Salir\n");
 }
 
-void listarEmpleados(struct empleado empleados[100], int num_emp){
+void listar_Doctores(struct doctor doctores[100], int num_doctores){
     printf("Listando los datos del empleado: \n");
-    for (int i=0; i<num_emp; i++){
-        printf("Nombre: %s\n", empleados[i].nombre);
-        printf("Id del Doctor: %d\n", empleados[i].id);
-        printf("Cedula: %d\n", empleados[i].cedula);
-        printf("Horario: %s\n",empleados[i].horas);
+    for (int i=0; i < num_doctores; i++){
+        printf("Nombre: %s\n", doctores[i].nombre);
+        printf("Id del Doctor: %d\n", doctores[i].id);
+        printf("Cedula: %d\n", doctores[i].cedula);
+        printf("Horario: %s\n", doctores[i].horas);
         printf("\n");
     }
 }
 
-int alta(struct empleado empleados[100], int num_emp){
+int alta(struct doctor doctores[100], int num_doctores){
     int creado = 0;
-    struct empleado emp;
+    struct doctor doc;
 
     fflush(stdin);
     printf("Introduce nombre y apellidos\n");
-    gets(emp.nombre);
+    gets(doc.nombre);
 
-    printf("Introduce Id del Doctor\n");
-    scanf("%d",&emp.id);
+    printf("Introduce ID del Doctor\n");
+    scanf("%d",&doc.id);
 
     printf("Introduce la cedula\n");
-    scanf("%d",&emp.cedula);
+    scanf("%d",&doc.cedula);
 
     fflush(stdin);
     printf("Introduce el horario semanal\n");
-    gets(emp.horas);
+    gets(doc.horas);
 
-    int existe = comprobarId(empleados,num_emp,emp.id);
+    int existe = comprobarID(doctores, num_doctores, doc.id);
 
-    if (num_emp < 100){
+    if (num_doctores < 100){
         if(existe == 0){
-            empleados[num_emp] = emp;
+            doctores[num_doctores] = doc;
             creado = 1;
         }
         else{
-            printf("No se puede crear empleado. ID duplicado\n");
+            printf("No se puede crear Doctor. ID duplicado\n");
         }
     }
     else{
-        printf("No se puede dar de alta el empleado. Cupo alcanzado");
+        printf("No se puede dar de alta al Doctor. Cupo alcanzado");
     }
 
     return creado;
 
 }
 
-int baja(struct empleado empleados[100], int num_emp){
+int baja(struct doctor doctores[100], int num_doctores){
     int eliminado = 0;
     int id, indice;
 
     printf("Introduce el Id del Doctor a dar de baja\n");
     scanf("%d",&id);
 
-    int existe = comprobarId(empleados,num_emp,id);
+    int existe = comprobarID(doctores, num_doctores, id);
 
     if (existe == 1){
-        for (int i=0; i<num_emp; i++){
-            if (empleados[i].id == id){
+        for (int i=0; i < num_doctores; i++){
+            if (doctores[i].id == id){
                 indice = i;
             }
         }
 
-        for (int j=indice; j<num_emp-1; j++){
-            empleados[j] = empleados[j+1];
-            struct empleado aux;
-            empleados[j+1] = aux;
+        for (int j=indice; j< num_doctores -1; j++){
+            doctores[j] = doctores[j+1];
+            struct doctor aux;
+            doctores[j+1] = aux;
         }
         eliminado = 1;
     }
@@ -95,19 +95,19 @@ int baja(struct empleado empleados[100], int num_emp){
 
 }
 
-void consultarDatosEmpleado(struct empleado empleados[100], int num_emp){
+void consultar_Datos_Doctor(struct doctor doctores[100], int num_doctores){
     int id;
     printf("Introduce el ID del Doctor cuyos datos quieres consultar\n");
     scanf("%d",&id);
 
-    int existe = comprobarId(empleados,num_emp,id);
+    int existe = comprobarID(doctores, num_doctores, id);
     if (existe == 1){
-        for (int i=0; i<num_emp; i++){
-            if (empleados[i].id == id){
-                printf("Listando datos del Doctor con id: %d\n", empleados[i].id);
-                printf("Nombre: %s\n",empleados[i].nombre);
-                printf("Cedula: %d\n", empleados[i].cedula);
-                printf("Horario: %s\n",empleados[i].horas);
+        for (int i=0; i< num_doctores; i++){
+            if (doctores[i].id == id){
+                printf("Listando datos del Doctor con id: %d\n", doctores[i].id);
+                printf("Nombre: %s\n", doctores[i].nombre);
+                printf("Cedula: %d\n", doctores[i].cedula);
+                printf("Horario: %s\n", doctores[i].horas);
 
             }
         }
@@ -118,23 +118,23 @@ void consultarDatosEmpleado(struct empleado empleados[100], int num_emp){
 
 }
 
-void modificarCedula(struct empleado empleados[100], int num_emp){
+void modificar_Cedula(struct doctor doctores[100], int num_doctores){
 
     int id;
 
     printf("Introduce el ID del Doctor cuya Cedula quieres modificar\n");
     scanf("%d",&id);
 
-    int existe = comprobarId(empleados,num_emp,id);
+    int existe = comprobarID(doctores, num_doctores, id);
 
     if (existe == 1){
-        float nuevo_sueldo;
+        float nuevo_doctor;
         
         printf("Introduce la nueva Cedula del Doctor\n");
-        scanf("%f",&nuevo_sueldo);
-        for(int i=0; i<num_emp; i++){
-            if (empleados[i].id == id){
-                empleados[i].cedula = nuevo_sueldo;
+        scanf("%f",&nuevo_doctor);
+        for(int i=0; i < num_doctores; i++){
+            if (doctores[i].id == id){
+                doctores[i].cedula = nuevo_doctor;
                 printf("Cedula actualizada\n");
             }
         }
@@ -144,14 +144,14 @@ void modificarCedula(struct empleado empleados[100], int num_emp){
     }
 }
 
-void modificarHorario(struct empleado empleados[100], int num_emp){
+void modificar_Horario(struct doctor doctores[100], int num_doctores){
 
     int id;
 
     printf("Introduce el ID del Doctor cuyo horario quieres modificar\n");
     scanf("%d",&id);
 
-    int existe = comprobarId(empleados,num_emp,id);
+    int existe = comprobarID(doctores, num_doctores, id);
 
     if (existe == 1){
         char nuevas_horas[50];
@@ -159,12 +159,12 @@ void modificarHorario(struct empleado empleados[100], int num_emp){
         printf("Introduce el nuevo horario del Doctor\n");
         gets(nuevas_horas);
         
-        for (int i = 0; i < num_emp; i++) {
-            if (empleados[i].id == id) {
-                if (strlen(nuevas_horas) == strlen(empleados[i].horas) && strcmp(nuevas_horas, empleados[i].horas) == 0) {
+        for (int i = 0; i < num_doctores; i++) {
+            if (doctores[i].id == id) {
+                if (strlen(nuevas_horas) == strlen(doctores[i].horas) && strcmp(nuevas_horas, doctores[i].horas) == 0) {
                     printf("El horario ya está actualizado\n");
                 } else {
-                    strcpy(empleados[i].horas, nuevas_horas);
+                    strcpy(doctores[i].horas, nuevas_horas);
                     printf("Horario actualizado\n");
                 }
             }
@@ -175,12 +175,12 @@ void modificarHorario(struct empleado empleados[100], int num_emp){
     }
 }
 
-int comprobarId(struct empleado empleados[100], int num_emp, int id){
+int comprobarID(struct doctor doctores[100], int num_doctores, int id){
 
     int resultado = 0;
 
-    for (int i=0; i<num_emp; i++){
-        if (empleados[i].id == id){
+    for (int i=0; i < num_doctores; i++){
+        if (doctores[i].id == id){
             resultado = 1;
         }
     }
