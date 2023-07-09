@@ -11,11 +11,11 @@ int main()
 
     num_doctores = cargar_Doctores(doctores);
     
-    printf("BIENVENIDOS AL GESTOR DE DOCTORES\n");
+    printf("   BIENVENIDOS AL GESTOR DE DOCTORES\n");
     mostrarMenu();
-    scanf("%d",&opcion);
+    scanf("  %d",&opcion);
 
-    while(opcion != 7){
+    while(opcion != 8){
         
         if(opcion == 1){
             int creado = alta(doctores, num_doctores);
@@ -41,13 +41,16 @@ int main()
         else if(opcion == 6){
             modificar_Horario(doctores, num_doctores);
         }
-        else if(opcion > 7 || opcion < 1){
-            printf("Por favor solo opciones entre 1-7");
+        else if(opcion == 7){
+            modificar_Celular(doctores, num_doctores);
+        }
+        else if(opcion > 8 || opcion < 1){
+            printf("  Por favor solo opciones entre 1-8");
         }
         mostrarMenu();
-        scanf("%d",&opcion);
+        scanf("  %d",&opcion);
     }
 
     guardarEmpleados(doctores, num_doctores);
-    printf("GRACIAS POR USAR EL GESTOR DE DOCTORES. HASTA PRONTO!\n\n");
+    printf("  GRACIAS POR USAR EL GESTOR DE DOCTORES. HASTA PRONTO!!\n\n");
 }
