@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "operaciones.h": "c"
+        "operaciones.h": "c",
+        "stdio.h": "c",
+        "operacionespacientes.h": "c",
+        "persistenciapacientes.h": "c",
+        "operacionesdoctores.h": "c",
+        "persistenciadoctores.h": "c"
     }
 }

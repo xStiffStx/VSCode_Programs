@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "operaciones.h"
+#include "operacionesDoctores.h"
 
 
 int cargar_Doctores(struct doctor doctores[100]){
@@ -9,7 +9,7 @@ int cargar_Doctores(struct doctor doctores[100]){
     FILE *f;
     f = fopen("Doctores.txt","r");
     char cadena[255];
-    char delimitador[] = " ;";
+    char delimitador[] = ";";
 
     while (feof(f) == 0){
 
@@ -27,9 +27,12 @@ int cargar_Doctores(struct doctor doctores[100]){
                     d.id = atoi(token);
                 }
                 else if(campo == 3){
-                    d.cedula = atof(token);
+                    d.cedula = atoi(token);
                 }
                 else if(campo == 4){
+                    d.celular = atoi(token);
+                }
+                else if(campo == 5){
                     strcpy(d.horas,token);
                 }
                 campo++;
@@ -44,7 +47,7 @@ int cargar_Doctores(struct doctor doctores[100]){
     return n_doc;
 }
 
-void guardarEmpleados(struct doctor doctores[100], int num_doctores){
+void guardarDoctores(struct doctor doctores[100], int num_doctores){
     FILE *f;
     f = fopen("Doctores.txt","w");
 
