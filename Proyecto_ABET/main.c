@@ -119,12 +119,10 @@ int main()
                 
             }
             else if(opc2 == 6){
-                modificar_Horario(doctores, num_doctores);
-                
+               modificar_Celular(doctores, num_doctores);
             }
             else if(opc2 == 7){
-                modificar_Celular(doctores, num_doctores);
-                
+                modificar_Horario(doctores, num_doctores);
             }
             else if(opc2 > 8 || opc2 < 1){
                 printf("  Por favor solo opciones entre 1-8");

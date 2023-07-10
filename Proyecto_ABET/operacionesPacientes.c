@@ -221,6 +221,7 @@ void modificarNcontacto(struct pacientes pacientes[100], int numPac){
         printf("  No se puede modificar el horario del paciente. Turno no existente\n");
     }
 }
+
 int comprobarTurno(struct pacientes pacientes[100], int numPac, int turno){
 
     int resultado = 0;

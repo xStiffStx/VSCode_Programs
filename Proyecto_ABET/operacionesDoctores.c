@@ -21,11 +21,13 @@ void mostrarMenu(){
 void listar_Doctores(struct doctor doctores[100], int num_doctores){
     printf("  Listando los datos de los doctores: \n");
     for (int i=0; i < num_doctores; i++){
+        printf("-----------------------------------------------");
         printf("  Nombre: %s\n", doctores[i].nombre);
         printf("  ID del Doctor: %d\n", doctores[i].id);
         printf("  Cedula: %d\n", doctores[i].cedula);
         printf("  N.Celular: %d\n", doctores[i].celular);
-        printf("  Horario: %s\n", doctores[i].horas);
+        printf("  Horario: %s\n", doctores[i].horas);\
+        printf("-----------------------------------------------");
         printf("\n");
     }
 }
@@ -161,10 +163,10 @@ void modificar_Celular(struct doctor doctores[100], int num_doctores){
     int existe = comprobarID(doctores, num_doctores, id);
 
     if (existe == 1){
-        float nuevo_doctor;
+        int nuevo_doctor;
         
         printf("  Introduce el nuevo N.Celular del Doctor\n");
-        scanf("  %f", &nuevo_doctor);
+        scanf("  %d", &nuevo_doctor);
         for(int i=0; i < num_doctores; i++){
             if (doctores[i].id == id){
                 doctores[i].celular = nuevo_doctor;
